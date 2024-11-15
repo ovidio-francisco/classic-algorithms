@@ -11,13 +11,11 @@ Implementations of classic algorithms and data structures for learning purposes.
 - [x] Karatsuba
 - [x] Merge sort
 
----
 
 ### Under Construction
 
 - [ ] Dijkstra
 
----
 
 ### Future Implementations
 
