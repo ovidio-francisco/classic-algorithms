@@ -16,6 +16,7 @@ Implementations of classic algorithms and data structures for learning purposes.
 
 - [ ] Dijkstra
 
+---
 
 ### Future Implementations
 
