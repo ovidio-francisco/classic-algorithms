@@ -1,0 +1,78 @@
+	- Start form a given node;
+	- Put it in the initial path;
+	- Analise all nodes adjacents with nodes in the path;
+		- For all adjacent nodes compute the distance to the origin;
+		- Select the one with the smalest distance to the origin and:
+			* put it on the path
+			* mark it as visited
+		- If there are non visited nodes return to the step 3
+			
+
+
+
+	- Inicie com um dado nó;
+	- Coloque-o no caminho inicial;
+	- Analise todos os nós adjacentes (aos nós presentes no caminho) ou (ao nó visitado)?;
+		- Para todos os nós adjacentes não visitados, atualize a distância até a origem (com base no custo acumulado do nó visitado?)
+		- Selecione o nó com a menor distância até a origem e:
+			* Coloque-o no caminho
+			* Marque-o como visitado
+		- Se houver nós não visitados, retorne a linha 3.
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+
+https://elemarjr.com/clube-de-estudos/artigos/algoritmo-de-dijkstra-entendendo-o-caminho-minimo-em-grafos-ponderados/
+
+
+| Suponha que temos um grafo ponderado com os seguintes vértices e arestas:
+| 
+| Vértices: A, B, C, D, E
+| Arestas: (A,B,3), (A,C,2), (B,C,1), (B,D,5), (C,D,3), (C,E,6), (D,E,4)
+| Se quisermos encontrar o caminho mais curto entre os vértices A e E, podemos aplicar o algoritmo de Dijkstra da seguinte maneira:
+| 
+| Começamos com o vértice A, cujo custo é 0.
+| Exploramos os vizinhos de A (B e C) e atualizamos seus custos: o custo para chegar a B é 3 (A -> B), e o custo para chegar a C é 2 (A -> C).
+| Selecionamos o vértice com o menor custo, que é C, e exploramos seus vizinhos (D e E). Atualizamos o custo para chegar a D (A -> C -> D) para 5 e o custo para chegar a E (A -> C -> E) para 8.
+| Selecionamos o vértice com o menor custo, que é B, e exploramos seu vizinho D. Atualizamos o custo para chegar a D (A -> B -> D) para 8.
+| Selecionamos o vértice com o menor custo, que é D, e exploramos seu vizinho E. Atualizamos o custo para chegar a E (A -> B -> D -> E) para 12.
+| Assim, o caminho mais curto entre A e E é A -> C -> D
+
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+
+
+Inicie com o nó de origem:
+
+1. Defina a distância do nó de origem para ele mesmo como 0.
+
+	Defina as distâncias de todos os outros nós como infinitas.
+	Mantenha uma lista de nós não visitados (todos os nós do grafo inicialmente).
+
+2. Coloque o nó de origem no caminho inicial:
+
+	Considere o nó de origem como o nó atualmente sendo processado.
+
+3. Para o nó atualmente processado:
+
+	Analise todos os nós adjacentes não visitados:
+		Para cada nó adjacente, calcule a distância acumulada a partir da origem através do nó atual.
+		Se essa distância for menor que a distância previamente armazenada para o nó adjacente, atualize-a.
+
+4. Selecione o próximo nó a ser processado:
+
+	Entre os nós não visitados, escolha o nó com a menor distância acumulada a partir da origem.
+	Coloque-o como o próximo nó a ser processado.
+
+5. Marque o nó atual como visitado:
+
+	Remova o nó atual da lista de nós não visitados.
+
+6. Repita os passos acima enquanto houver nós não visitados:
+
+	Retorne ao passo 3 para continuar o processo até que todos os nós tenham sido visitados ou que o menor caminho para o destino desejado tenha sido encontrado (caso específico de buscas direcionadas).

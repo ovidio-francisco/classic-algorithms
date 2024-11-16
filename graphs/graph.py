@@ -2,13 +2,14 @@ from collections import namedtuple
 
 Graph = namedtuple("Graph", ["nodes", "edges", "is_directed"])
 
+
 def adjacency_dict(graph):
     """
     Returns the adjacency list representation
     of the graph
     """
 
-    adj = { node: [] for node in graph.nodes }
+    adj = {node: [] for node in graph.nodes}
 
     for edge in graph.edges:
         node1, node2 = edge[0], edge[1]
@@ -24,7 +25,6 @@ def adjacency_matrix(graph):
     Returns the adjacency matrix representation of the graph
     Assumes that graph.nodes is the range[len(graph.nodes)]
     """
-
 
     adj = [[0 for node in graph.nodes] for node in graph.nodes]
 
