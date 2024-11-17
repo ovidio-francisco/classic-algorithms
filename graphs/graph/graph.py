@@ -12,10 +12,10 @@ def adjacency_dict(graph):
     adj = {node: [] for node in graph.nodes}
 
     for edge in graph.edges:
-        node1, node2 = edge[0], edge[1]
-        adj[node1].append(node2)
+        node1, node2, weight = edge[0], edge[1], edge[2]
+        adj[node1].append((node2, weight))
         if not graph.is_directed:
-            adj[node2].append(node1)
+            adj[node2].append((node1, weight))
 
     return adj
 

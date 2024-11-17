@@ -2,13 +2,13 @@ from graph import Graph, adjacency_dict, adjacency_matrix
 
 
 def test_adjacency_dict():
-    G = Graph(nodes=range(3), edges=[(1, 0), (1, 2), (0, 2)],
+    G = Graph(["A", "B", "C"], edges=[("B", "A"), ("B", "C"), ("A", "C")],
               is_directed=False)
 
     expected_adj_dict = {
-        0: [1, 2],
-        1: [0, 2],
-        2: [1, 0]
+        "A": ["B", "C"],
+        "B": ["A", "C"],
+        "C": ["B", "A"]
     }
 
     assert (

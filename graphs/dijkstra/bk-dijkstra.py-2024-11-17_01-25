@@ -1,0 +1,64 @@
+from graph.graph import Graph, adjacency_dict
+inf = float('inf')
+
+
+def dijkstra(adj_dict, origin):
+    #  print("Adj Dict: " + str(adj_dict))
+
+    unvisited = [node for node in adj_dict]
+
+    distances = {node: inf for node in adj_dict}
+    distances[origin] = 0
+
+
+    p = origin
+    unvisited.remove(p)
+
+    while unvisited:
+        adj = adj_dict[p]
+        print("Adjacentes do processado: " + str(adj))
+
+        for node in adj:
+            n, d = node
+            acumulada = distances[p] + d
+
+            if acumulada < distances[n]:
+                distances[n] = acumulada
+
+        # Find the adjcent node with the smallest distance from the origin
+
+
+
+        u = unvisited.pop()
+        print("Pop: " + str(u))
+
+    print('Distances: ' + str(distances))
+    print("Unvisited: " + str(unvisited))
+
+    return
+
+
+
+def main():
+    print("\n--- Dijkstra ---\n")
+
+    nodes = ["A", "B", "C", "D", "E"]
+    edges = [
+        ("A", "B", 6),
+        ("A", "D", 1),
+        ("D", "B", 2),
+        ("D", "E", 1),
+        ("B", "C", 5),
+        ("E", "C", 5),
+    ]
+
+    G = Graph(nodes, edges, is_directed=False)
+
+    graph = adjacency_dict(G)
+
+    dijkstra(graph, "A")
+
+
+
+if __name__ == "__main__":
+    main()
