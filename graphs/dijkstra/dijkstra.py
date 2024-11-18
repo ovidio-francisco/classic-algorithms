@@ -2,10 +2,10 @@ from graph.graph import Graph, adjacency_dict
 inf = float('inf')
 
 
-def update_dist(node_list, node, dist):
+def update_dist(node_list, node, dist, prev):
     for i in range(len(node_list)):
         if node_list[i][0] == node and dist < node_list[i][1]:
-            node_list[i] = (node, dist)
+            node_list[i] = (node, dist, None if prev is None else prev[0])
 
 
 def pop_smallest(node_list):
@@ -26,6 +26,25 @@ def pop_smallest(node_list):
     return small
 
 
+def append_visited(list_visited, node):
+    list_visited.append(node)
+
+
+def get_prev(table, node):
+    for n in table:
+        if n[0] == node:
+            return n[2]
+
+    return None
+
+
+def get_path(table, node):
+    if node is None:
+        return []
+
+    prev = get_prev(table, node)
+
+    return get_path(table, prev) + [node[0]]
 
 
 def dijkstra(adj_dict, origin):
@@ -33,11 +52,12 @@ def dijkstra(adj_dict, origin):
     unvisited = [(node, inf) for node in adj_dict]
     visited = []
 
-    update_dist(unvisited, origin, 0)
+    update_dist(unvisited, origin, 0, None)
     p = pop_smallest(unvisited)
-    visited.append(p)
+    append_visited(visited, p)
 
     while unvisited:
+        #  print("Unvisited: " + str(unvisited))
         adj = adj_dict[p[0]]
 
         # Update the adjacents distancies
@@ -45,11 +65,11 @@ def dijkstra(adj_dict, origin):
             n, d = node
             acumulada = p[1] + d
 
-            update_dist(unvisited, n, acumulada)
+            update_dist(unvisited, n, acumulada, p)
 
         # Find the unvisited node with the smallest distance from the origin
         p = pop_smallest(unvisited)
-        visited.append(p)
+        append_visited(visited, p)
 
 
     return visited
@@ -76,7 +96,16 @@ def main():
     result = dijkstra(graph, "A")
     print(result)
 
+    print("Path: " + str(get_path(result, 'A')))
+    print("Path: " + str(get_path(result, 'B')))
+    print("Path: " + str(get_path(result, 'C')))
+    print("Path: " + str(get_path(result, 'D')))
+    print("Path: " + str(get_path(result, 'E')))
 
 
 if __name__ == "__main__":
     main()
+
+
+
+
