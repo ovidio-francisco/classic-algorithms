@@ -26,10 +26,6 @@ def pop_smallest(node_list):
     return small
 
 
-def append_visited(list_visited, node):
-    list_visited.append(node)
-
-
 def get_prev(table, node):
     for n in table:
         if n[0] == node:
@@ -54,10 +50,9 @@ def dijkstra(adj_dict, origin):
 
     update_dist(unvisited, origin, 0, None)
     p = pop_smallest(unvisited)
-    append_visited(visited, p)
+    visited.append(p)
 
     while unvisited:
-        #  print("Unvisited: " + str(unvisited))
         adj = adj_dict[p[0]]
 
         # Update the adjacents distancies
@@ -69,7 +64,7 @@ def dijkstra(adj_dict, origin):
 
         # Find the unvisited node with the smallest distance from the origin
         p = pop_smallest(unvisited)
-        append_visited(visited, p)
+        visited.append(p)
 
 
     return visited

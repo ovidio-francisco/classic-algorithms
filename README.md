@@ -10,15 +10,17 @@ Implementations of classic algorithms and data structures for learning purposes.
 
 - [x] Karatsuba
 - [x] Merge sort
+- [x] Dijkstra
 
 
 ### Under Construction
 
-- [ ] Dijkstra
-
 ### Future Implementations
 
+- [ ] Kruskal
 - [ ] Prim's Algorithm
+- [ ] Kadane
+- [ ] Quick sort
 - [ ] AVL Tree
 
 
