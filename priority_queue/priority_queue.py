@@ -1,11 +1,17 @@
 
 class PriorityQueue:
     heap = []
-    top  = 0
 
-    def Insert(self, e):
-        self.heap[self.top] = e
-        self.top += 1
+    def push(element, priority):
+        pass
+
+    def pop():
+        pass
+
+    def peek():
+        pass
+
+
 
 
 

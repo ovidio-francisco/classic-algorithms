@@ -18,9 +18,11 @@ Implementations of classic algorithms and data structures for learning purposes.
 ### Future Implementations
 
 - [ ] Kruskal
-- [ ] Prim's Algorithm
+- [ ] Prim
 - [ ] Kadane
 - [ ] Quick sort
+- [ ] Heap
+- [ ] Heap sort
 - [ ] AVL Tree
 
 
