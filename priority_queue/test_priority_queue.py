@@ -74,8 +74,8 @@ class TestPriorityQueue(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    #  unittest.main(testRunner=CustomTestRunner)
-    unittest.main()
+    unittest.main(testRunner=CustomTestRunner)
+    #  unittest.main()
 
 
 
