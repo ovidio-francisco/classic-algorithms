@@ -1,5 +1,4 @@
 # Classic Algorithms and Data Structures
-
 Implementations of classic algorithms and data structures for learning purposes. The emphasis is on the design and analysis of algorithms.
 
 **Note**: Detailed optimization beyond asymptotic behavior is not a primary focus.
@@ -20,11 +19,17 @@ Implementations of classic algorithms and data structures for learning purposes.
 
 ### Future Implementations
 
-- [ ] Kruskal
 - [ ] Prim
+- [ ] Kruskal
+- [ ] A*
+- [ ] Strassen
 - [ ] Heap
 - [ ] Heap sort
+- [ ] Union-find
+- [ ] Tree
 - [ ] AVL Tree
+- [ ] Hash
+- [ ] Crytography
 
 
 
